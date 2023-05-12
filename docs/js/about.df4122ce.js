@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkcitydog_popup"]=self["webpackChunkcitydog_popup"]||[]).push([[443],{507:function(t,u,n){n.r(u),n.d(u,{default:function(){return l}});var s=function(){var t=this;t._self._c;return t._m(0)},e=[function(){var t=this,u=t._self._c;return u("div",{staticClass:"about"},[u("h1",[t._v("This is an about page")])])}],i=n(1),a={},c=(0,i.Z)(a,s,e,!1,null,null,null),l=c.exports}}]);
+//# sourceMappingURL=about.df4122ce.js.map
