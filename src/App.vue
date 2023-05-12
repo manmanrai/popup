@@ -166,7 +166,7 @@
                 <dd>{{ item.price }} {{ item.amount }}件</dd>
               </dl>
             </td>
-            <td>{{ history.total }}</td>
+            <td>{{ history.total.toLocaleString() }}</td>
           </tr>
         </tbody>
       </table>
