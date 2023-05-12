@@ -170,7 +170,13 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" v-on:click="fullyReset()">テスト購入履歴を削除</button>
+      <div class="hide">
+        <button type="button" v-on:click="showDeleteButton = !showDeleteButton">削除ボタンを表示</button>
+        <template v-if="showDeleteButton">
+          <br><br>
+          <button type="button" v-on:click="fullyReset()">テスト購入履歴を削除</button>
+        </template>
+      </div>
     </section>
   </div>
 </template>
@@ -187,6 +193,7 @@
         },
         cart: [],
         purchase_history: [],
+        showDeleteButton: false,
         array: [
           {
             category: "carry",
@@ -1139,6 +1146,7 @@
       fullyReset() {
         localStorage.removeItem('citydog_product_list')
         localStorage.removeItem('citydog_purchase_history')
+        window.location.reload()
       }
     }
   }
@@ -1290,5 +1298,9 @@ dd {
   vertical-align: text-top;
   text-align: left;
   padding: 10px;
+}
+.hide {
+  padding-top: 80px;
+  text-align: right;
 }
 </style>
