@@ -1033,24 +1033,39 @@
       minus(code) {
         this.array.map((item) => {
           if (item.code === code) {
-            if (item.sold - 1 >= 0) {
-              item.sold = item.sold - 1
-              item.selected = true
-              const price = item.price.replace('¥', "").replace(',', "")
-              this.total -= Number(price)
-              if (price === '3000') {
-                this.detail.three -= 1
-              } else if (price === '4000') {
-                this.detail.four -= 1
-              } else if (price === '5000') {
-                this.detail.five -= 1
-              }
+            item.sold = item.sold - 1
+            item.selected = true
+            const price = item.price.replace('¥', "").replace(',', "")
+            this.total -= Number(price)
+            if (price === '3000') {
+              this.detail.three -= 1
+            } else if (price === '4000') {
+              this.detail.four -= 1
+            } else if (price === '5000') {
+              this.detail.five -= 1
+            }
+
+            const Obj = {
+              product: item.product,
+              code: item.code,
+              price: item.price,
+              amount: -1
+            }
+            if (this.cart.length === 0) {
+              this.cart.push(Obj)
+            } else {
+              let exist = false
               this.cart.map((i) => {
                 if (i.code === code) {
                   i.amount -= 1
+                  exist = true
                 }
               })
+              if (!exist) {
+                this.cart.push(Obj)
+              }
             }
+            // 数の調整ができるように、マイナスを許可する
           }
         })
       },
